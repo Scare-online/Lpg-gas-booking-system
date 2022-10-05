@@ -28,7 +28,15 @@ class Application:
     def search_db(self):
         self.input = self.namenet.get()
         # execute sql 
-
+        sql = "SELECT * FROM appointments WHERE name LIKE ?"
+        self.res = c.execute(sql, (self.input,))
+        for self.row in self.res:
+            self.name1 = self.row[1]
+            self.age = self.row[2]
+            self.gender = self.row[3]
+            self.location = self.row[4]
+            self.time = self.row[6]
+            self.phone = self.row[5]
        
         # creating the update form
         self.uname = Label(self.master, text="Customer's Name", font=('arial 18 bold'))
